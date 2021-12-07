@@ -3,7 +3,7 @@ import { data } from '../SpeakerData';
 function Session({ title, room }) {
   return (
     <span className="session w-100">
-      {title} <strong>Room: {room}</strong>
+      {title} <strong>Room: {room.name}</strong>
     </span>
   );
 }
@@ -11,7 +11,7 @@ function Session({ title, room }) {
 function Sessions({ sessions }) {
   return (
     <div className="sessionBox card h-250">
-      <Session title={sessions[0].title} room={sessions[0].room.name} />
+      <Session {...sessions[0]} />
     </div>
   );
 }
