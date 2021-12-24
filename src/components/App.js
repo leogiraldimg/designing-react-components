@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { data } from '../../SpeakerData';
 import Header from './Header';
 import Speakers from './Speakers';
 
@@ -13,7 +12,7 @@ function App() {
       }
     >
       <Header theme={theme} />
-      <Speakers data={data} theme={theme} setTheme={setTheme} />
+      <Speakers theme={theme} setTheme={setTheme} />
     </div>
   );
 }
