@@ -7,7 +7,7 @@ const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 const delay = (ms) =>
   new Promise((resolve) => {
-    setTimeout(resolver, ms);
+    setTimeout(resolve, ms);
   });
 
 export default async function handler(req, res) {

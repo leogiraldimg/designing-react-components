@@ -10,10 +10,8 @@ export const REQUEST_STATUS = {
 const restUrl = 'api/speakers';
 
 function useRequestRest() {
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState([]);
   const [requestStatus, setRequestStatus] = useState(REQUEST_STATUS.LOADING);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasErrored, setHasErrored] = useState(false);
   const [error, setError] = useState('');
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
