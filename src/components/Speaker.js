@@ -2,6 +2,7 @@ import React, { useContext, useState, memo } from 'react';
 import { SpeakerFilterContext } from '../contexts/SpeakerFilterContext';
 import { SpeakerContext, SpeakerProvider } from '../contexts/SpeakerContext';
 import SpeakerDelete from './SpeakerDelete';
+import ErrorBoundary from './ErrorBoundary';
 
 function Session({ title, room }) {
   return (
@@ -115,7 +116,7 @@ function SpeakerDemographics() {
       </div>
       <SpeakerFavorite />
       <div>
-        <p className="card-description">{bio}</p>
+        <p className="card-description">{bio.substr(0, 70)}</p>
         <div className="social d-flex flex-row mt-4">
           <div className="company">
             <h5>Company</h5>
@@ -131,7 +132,7 @@ function SpeakerDemographics() {
   );
 }
 
-const Speaker = memo(function Speaker({
+const SpeakerNoErrorBoundary = memo(function Speaker({
   speaker,
   updateRecord,
   insertRecord,
@@ -158,6 +159,14 @@ const Speaker = memo(function Speaker({
   );
 },
 areEqualSpeaker);
+
+function Speaker(props) {
+  return (
+    <ErrorBoundary>
+      <SpeakerNoErrorBoundary {...props} />
+    </ErrorBoundary>
+  );
+}
 
 function areEqualSpeaker(prevProps, nextProps) {
   return prevProps.speaker.favorite === nextProps.speaker.favorite;
