@@ -14,3 +14,4 @@ function withAuth(Component) {
     );
   };
 }
+export default withAuth;
